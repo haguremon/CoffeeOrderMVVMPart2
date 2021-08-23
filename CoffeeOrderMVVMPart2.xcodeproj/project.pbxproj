@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		CF29C2AF26D159570054A0E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF29C2AE26D159570054A0E8 /* AppDelegate.swift */; };
 		CF29C2B126D159570054A0E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF29C2B026D159570054A0E8 /* SceneDelegate.swift */; };
-		CF29C2B326D159570054A0E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF29C2B226D159570054A0E8 /* ViewController.swift */; };
 		CF29C2B626D159570054A0E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF29C2B426D159570054A0E8 /* Main.storyboard */; };
 		CF29C2B826D159580054A0E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF29C2B726D159580054A0E8 /* Assets.xcassets */; };
 		CF29C2BB26D159580054A0E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF29C2B926D159580054A0E8 /* LaunchScreen.storyboard */; };
+		CFCE585626D363BA00587816 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE585526D363BA00587816 /* OrdersTableViewController.swift */; };
+		CFCE585926D3643300587816 /* AddOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE585826D3643300587816 /* AddOrderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF29C2AB26D159570054A0E8 /* CoffeeOrderMVVMPart2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeOrderMVVMPart2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF29C2AE26D159570054A0E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF29C2B026D159570054A0E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CF29C2B226D159570054A0E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF29C2B526D159570054A0E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF29C2B726D159580054A0E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF29C2BA26D159580054A0E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF29C2BC26D159580054A0E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFCE585526D363BA00587816 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
+		CFCE585826D3643300587816 /* AddOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		CF29C2AD26D159570054A0E8 /* CoffeeOrderMVVMPart2 */ = {
 			isa = PBXGroup;
 			children = (
+				CFCE585726D363C800587816 /* Controllers */,
 				CF29C2AE26D159570054A0E8 /* AppDelegate.swift */,
 				CF29C2B026D159570054A0E8 /* SceneDelegate.swift */,
-				CF29C2B226D159570054A0E8 /* ViewController.swift */,
 				CF29C2B426D159570054A0E8 /* Main.storyboard */,
 				CF29C2B726D159580054A0E8 /* Assets.xcassets */,
 				CF29C2B926D159580054A0E8 /* LaunchScreen.storyboard */,
 				CF29C2BC26D159580054A0E8 /* Info.plist */,
 			);
 			path = CoffeeOrderMVVMPart2;
+			sourceTree = "<group>";
+		};
+		CFCE585726D363C800587816 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFCE585526D363BA00587816 /* OrdersTableViewController.swift */,
+				CFCE585826D3643300587816 /* AddOrderViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF29C2B326D159570054A0E8 /* ViewController.swift in Sources */,
 				CF29C2AF26D159570054A0E8 /* AppDelegate.swift in Sources */,
 				CF29C2B126D159570054A0E8 /* SceneDelegate.swift in Sources */,
+				CFCE585626D363BA00587816 /* OrdersTableViewController.swift in Sources */,
+				CFCE585926D3643300587816 /* AddOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
