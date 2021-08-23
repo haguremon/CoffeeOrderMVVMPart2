@@ -50,14 +50,69 @@
                     <view key="view" contentMode="scaleToFill" id="AZ0-xz-BQy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="47d-k1-Xhe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="418"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="c4l-9E-YbS">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c4l-9E-YbS" id="Set-Ur-Qj1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nJY-Cf-3bR">
+                                <rect key="frame" x="104" y="551" width="206" height="32"/>
+                                <segments>
+                                    <segment title="Small"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Large"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-Nv-06B">
+                                <rect key="frame" x="107" y="649" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0hA-m4-Nu8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q64-1H-VfT">
+                                <rect key="frame" x="107" y="714" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="sqg-x9-WLM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7yl-eV-5hZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="47d-k1-Xhe" firstAttribute="leading" secondItem="7yl-eV-5hZ" secondAttribute="leading" id="8H7-sF-Tr1"/>
+                            <constraint firstItem="nJY-Cf-3bR" firstAttribute="centerX" secondItem="AZ0-xz-BQy" secondAttribute="centerX" id="94D-Dr-IgC"/>
+                            <constraint firstItem="Q64-1H-VfT" firstAttribute="centerX" secondItem="AZ0-xz-BQy" secondAttribute="centerX" id="EAO-t1-4JN"/>
+                            <constraint firstItem="47d-k1-Xhe" firstAttribute="top" secondItem="7yl-eV-5hZ" secondAttribute="top" id="EWI-jF-EVy"/>
+                            <constraint firstItem="SgR-Nv-06B" firstAttribute="top" secondItem="7yl-eV-5hZ" secondAttribute="top" constant="561" id="KNu-UF-TGz"/>
+                            <constraint firstItem="47d-k1-Xhe" firstAttribute="trailing" secondItem="7yl-eV-5hZ" secondAttribute="trailing" id="LVX-10-DCZ"/>
+                            <constraint firstItem="nJY-Cf-3bR" firstAttribute="top" secondItem="47d-k1-Xhe" secondAttribute="bottom" constant="45" id="P6a-nC-ssh"/>
+                            <constraint firstItem="SgR-Nv-06B" firstAttribute="centerX" secondItem="AZ0-xz-BQy" secondAttribute="centerX" id="S1c-4n-W7W"/>
+                            <constraint firstItem="7yl-eV-5hZ" firstAttribute="trailing" secondItem="47d-k1-Xhe" secondAttribute="trailing" id="TTS-yg-fTv"/>
+                            <constraint firstItem="47d-k1-Xhe" firstAttribute="top" secondItem="7yl-eV-5hZ" secondAttribute="top" id="ZOT-Jb-okg"/>
+                            <constraint firstItem="47d-k1-Xhe" firstAttribute="leading" secondItem="7yl-eV-5hZ" secondAttribute="leading" id="jQI-oD-AA9"/>
+                            <constraint firstItem="7yl-eV-5hZ" firstAttribute="bottom" secondItem="47d-k1-Xhe" secondAttribute="bottom" constant="356" id="llT-yy-mEd"/>
+                            <constraint firstItem="Q64-1H-VfT" firstAttribute="top" secondItem="SgR-Nv-06B" secondAttribute="bottom" constant="31" id="qxP-n6-BaP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add new Order" id="0gU-5w-jmB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjA-OC-ay0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2813" y="56"/>
+            <point key="canvasLocation" x="2811.594202898551" y="55.580357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rGU-xm-GJm">
