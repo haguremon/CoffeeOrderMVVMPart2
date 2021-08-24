@@ -14,9 +14,12 @@ class OrdersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toOrder()
+        
+        showOrderList()
+   
     }
-    private func toOrder(){
+    
+    private func showOrderList(){
         
         
         guard let coffeeUrl = URL(string: "https://island-bramble.glitch.me/orders") else { return }
@@ -31,7 +34,6 @@ class OrdersTableViewController: UITableViewController {
             switch result {
             
             case .success(let orders):
-                print(orders)
                 //２、ここで配列のデータを取得
                 self?.ordersListViewModel.orderViewModels = orders.map(OrderViewModel.init)
                //非同期使わなくてもいいよーデータを取得するときにしてるので
@@ -64,9 +66,11 @@ class OrdersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         let order = ordersListViewModel.forRowAtindex(at: indexPath.row)
-        
-        cell.textLabel?.text = order.name
-
+        let font = UIFont.boldSystemFont(ofSize: 17)
+        cell.textLabel?.font = font
+        cell.textLabel?.text = order.coffeeName
+        cell.detailTextLabel?.font = font
+        cell.detailTextLabel?.text = order.size
         return cell
     }
 

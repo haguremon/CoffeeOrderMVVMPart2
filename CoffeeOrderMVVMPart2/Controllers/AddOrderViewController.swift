@@ -9,21 +9,33 @@ import UIKit
 
 class AddOrderViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var vm = AddCoffeeOrderViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+      
+        
+    }
+      
 
-        // Do any additional setup after loading the view.
+}
+extension AddOrderViewController: UITableViewDataSource,  UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        vm.coffeeType.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = vm.coffeeType[indexPath.row]
+        
+        return cell
     }
-    */
-
+    
+    
+    
 }
