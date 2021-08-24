@@ -11,6 +11,12 @@ class AddOrderViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBOutlet weak var ordernameTF: UITextField!
+    
+    @IBOutlet weak var totalTF: UITextField!
+    
+    
     private var vm = AddCoffeeOrderViewModel()
     
     private var coffeeSizeSegmentedControl: UISegmentedControl!
@@ -53,6 +59,16 @@ extension AddOrderViewController: UITableViewDataSource,  UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        //セルをタップした場所に.checkmarkをつける
+    }
+    //Deselectした時にチェックマークを消す
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
+    
+    }
     
     
 }

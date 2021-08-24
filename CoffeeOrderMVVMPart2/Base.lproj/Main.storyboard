@@ -118,7 +118,9 @@
                         <barButtonItem key="rightBarButtonItem" title="save" id="GBh-f8-MG6"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="ordernameTF" destination="SgR-Nv-06B" id="UlB-ug-zuZ"/>
                         <outlet property="tableView" destination="47d-k1-Xhe" id="hxa-vA-mV2"/>
+                        <outlet property="totalTF" destination="Q64-1H-VfT" id="nj3-p2-x4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjA-OC-ay0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
