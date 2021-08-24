@@ -12,6 +12,7 @@
 		CF29C2B626D159570054A0E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF29C2B426D159570054A0E8 /* Main.storyboard */; };
 		CF29C2B826D159580054A0E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF29C2B726D159580054A0E8 /* Assets.xcassets */; };
 		CF29C2BB26D159580054A0E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF29C2B926D159580054A0E8 /* LaunchScreen.storyboard */; };
+		CFC07ADC26D4A383000CAC23 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC07ADB26D4A383000CAC23 /* OrderViewModel.swift */; };
 		CFCE585626D363BA00587816 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE585526D363BA00587816 /* OrdersTableViewController.swift */; };
 		CFCE585926D3643300587816 /* AddOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE585826D3643300587816 /* AddOrderViewController.swift */; };
 		CFCE585C26D37A6D00587816 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE585B26D37A6D00587816 /* WebService.swift */; };
@@ -26,6 +27,7 @@
 		CF29C2B726D159580054A0E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF29C2BA26D159580054A0E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF29C2BC26D159580054A0E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFC07ADB26D4A383000CAC23 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		CFCE585526D363BA00587816 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		CFCE585826D3643300587816 /* AddOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderViewController.swift; sourceTree = "<group>"; };
 		CFCE585B26D37A6D00587816 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		CF29C2AD26D159570054A0E8 /* CoffeeOrderMVVMPart2 */ = {
 			isa = PBXGroup;
 			children = (
+				CFC07ADA26D4A338000CAC23 /* View Models */,
 				CFCE585D26D38CC000587816 /* Models */,
 				CFCE585A26D37A4A00587816 /* Services */,
 				CFCE585726D363C800587816 /* Controllers */,
@@ -73,6 +76,14 @@
 				CF29C2BC26D159580054A0E8 /* Info.plist */,
 			);
 			path = CoffeeOrderMVVMPart2;
+			sourceTree = "<group>";
+		};
+		CFC07ADA26D4A338000CAC23 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				CFC07ADB26D4A383000CAC23 /* OrderViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		CFCE585726D363C800587816 /* Controllers */ = {
@@ -175,6 +186,7 @@
 				CF29C2B126D159570054A0E8 /* SceneDelegate.swift in Sources */,
 				CFCE585C26D37A6D00587816 /* WebService.swift in Sources */,
 				CFCE585626D363BA00587816 /* OrdersTableViewController.swift in Sources */,
+				CFC07ADC26D4A383000CAC23 /* OrderViewModel.swift in Sources */,
 				CFCE585926D3643300587816 /* AddOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

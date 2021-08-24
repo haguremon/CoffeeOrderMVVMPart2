@@ -23,11 +23,16 @@ enum NetWorkError: Error {
 struct WebService {
     //ジェネリック関数を使って 実行するときに特殊化が必要（この場合は引数から型を決める）//completionの型にはResult<ｓ,ｆ>型を指定して成功するときはTを返して、失敗するときはNetWorkErrorを返すようにした
     func load<T>(resource: Resource<T>, completion: @escaping (Result<T,NetWorkError>) -> Void ) {
+        
         URLSession.shared.dataTask(with: resource.url) { data, response, error in
+            
             guard let data = data , error == nil else {
+                
                 completion(.failure(.domainError))
                 return
+           
             }
+            
             print(data)
             //Tは引数からCodableだとわかるのでここで使う
             let result = try? JSONDecoder().decode(T.self, from: data)

@@ -12,7 +12,9 @@ enum CoffeeType: String, Codable {
     
     case blackCoffee
     
-    case cafeLatte
+    case cappachino
+    
+    case caffeeLatte
     
     case matchaLatte
     
@@ -23,7 +25,7 @@ enum CoffeeType: String, Codable {
 enum CoffeeSize : String, Codable {
     
     case small
-    case mideum
+    case medium
     case large
 }
 
