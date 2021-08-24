@@ -7,31 +7,33 @@
 
 import Foundation
 //rowValueの設定をStringにした、そしてOrderはCodableに批准してるのでCoffeeTypeもOrder内でプロパティとして使うのでCodableが必要
+
 enum CoffeeType: String, Codable {
     
-    case BlackCoffee
+    case blackCoffee
     
-    case CafeLatte
+    case cafeLatte
     
-    case MatchaLatte
+    case matchaLatte
     
-    case HoujichaLatte
+    case houjichaLatte
     
 }
-enum Size : String, Codable {
+//Sizeも３つのケースなので列挙型にした
+enum CoffeeSize : String, Codable {
     
-    case Small
-    case Mideum
-    case Large
+    case small
+    case mideum
+    case large
 }
-
 
 struct Order: Codable {
     
     let name: String
-    let email: String
     //コーヒーのメニューが4種類のために列挙型にした
-    let type: CoffeeType
+    let coffeeName: CoffeeType
     
-    let size: Size
+    let total: Double
+    
+    let size: CoffeeSize
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 //データのやり取りを行うのでここでジェネリック型を使ってTが(Codableの)モデルの型の場合はurlを取得することができるようにする
+//モデルをリソースとした使う
 struct Resource<T: Codable> {
     
     let url: URL
@@ -27,20 +28,24 @@ struct WebService {
                 completion(.failure(.domainError))
                 return
             }
+            print(data)
             //Tは引数からCodableだとわかるのでここで使う
             let result = try? JSONDecoder().decode(T.self, from: data)
+        
             if let result = result {
                 
                //UIで使う場合は非同期にする必要がある
                 DispatchQueue.main.async {
                     
                     completion(.success(result))
-
+                    print(result)
                 }
                 
-            }
+            } else {
             
             completion(.failure(.decodingError))
+            
+            }
         
         }.resume()
         

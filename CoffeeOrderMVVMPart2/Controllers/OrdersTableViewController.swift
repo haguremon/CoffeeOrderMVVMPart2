@@ -11,12 +11,31 @@ class OrdersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        toOrder()
+    }
+    private func toOrder(){
+        
+        
+        guard let coffeeUrl = URL(string: "https://island-bramble.glitch.me/orders") else { return }
+        //配列の注文にする予定なのでResourceのジェリックの値を配列に設定　そして引数にその型にあったUrlにする
+        
+        let resource = Resource<[Order]>(url: coffeeUrl)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
+        WebService().load(resource: resource) { result in
+          
+            //let result: Result<Order, NetWorkError>なので成功と失敗のケースを書かないといけない
+            switch result {
+            
+            case .success(let orders):
+                print(orders)
+            
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+        
     }
 
     // MARK: - Table view data source
