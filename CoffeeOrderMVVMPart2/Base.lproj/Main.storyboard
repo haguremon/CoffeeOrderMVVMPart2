@@ -81,14 +81,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nJY-Cf-3bR">
-                                <rect key="frame" x="104" y="551" width="206" height="32"/>
-                                <segments>
-                                    <segment title="Small"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Large"/>
-                                </segments>
-                            </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-Nv-06B">
                                 <rect key="frame" x="107" y="649" width="200" height="34"/>
                                 <constraints>
@@ -110,12 +102,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="47d-k1-Xhe" firstAttribute="leading" secondItem="7yl-eV-5hZ" secondAttribute="leading" id="8H7-sF-Tr1"/>
-                            <constraint firstItem="nJY-Cf-3bR" firstAttribute="centerX" secondItem="AZ0-xz-BQy" secondAttribute="centerX" id="94D-Dr-IgC"/>
                             <constraint firstItem="Q64-1H-VfT" firstAttribute="centerX" secondItem="AZ0-xz-BQy" secondAttribute="centerX" id="EAO-t1-4JN"/>
                             <constraint firstItem="47d-k1-Xhe" firstAttribute="top" secondItem="7yl-eV-5hZ" secondAttribute="top" id="EWI-jF-EVy"/>
                             <constraint firstItem="SgR-Nv-06B" firstAttribute="top" secondItem="7yl-eV-5hZ" secondAttribute="top" constant="561" id="KNu-UF-TGz"/>
                             <constraint firstItem="47d-k1-Xhe" firstAttribute="trailing" secondItem="7yl-eV-5hZ" secondAttribute="trailing" id="LVX-10-DCZ"/>
-                            <constraint firstItem="nJY-Cf-3bR" firstAttribute="top" secondItem="47d-k1-Xhe" secondAttribute="bottom" constant="45" id="P6a-nC-ssh"/>
                             <constraint firstItem="SgR-Nv-06B" firstAttribute="centerX" secondItem="AZ0-xz-BQy" secondAttribute="centerX" id="S1c-4n-W7W"/>
                             <constraint firstItem="7yl-eV-5hZ" firstAttribute="trailing" secondItem="47d-k1-Xhe" secondAttribute="trailing" id="TTS-yg-fTv"/>
                             <constraint firstItem="47d-k1-Xhe" firstAttribute="top" secondItem="7yl-eV-5hZ" secondAttribute="top" id="ZOT-Jb-okg"/>

@@ -13,14 +13,31 @@ class AddOrderViewController: UIViewController {
     
     private var vm = AddCoffeeOrderViewModel()
     
+    private var coffeeSizeSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
       
-        
+        setupUI()
     }
-      
+    //自作のUISegmentedControlを作成する
+    private func setupUI() {
+        //１、vm.coffeeSizeのアイテム3種類を入れたそれぞれを入れた
+        coffeeSizeSegmentedControl = UISegmentedControl(items: vm.coffeeSize)
+        //2, 異なる制約にも適用させた
+        coffeeSizeSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        //3 viewに表示する
+        view.addSubview(coffeeSizeSegmentedControl)
+        //4tableViewのボトムから40の所に配置するようにするisActiveで自動的にそうなる
+        coffeeSizeSegmentedControl.topAnchor.constraint(equalTo: tableView.bottomAnchor,
+                                                        constant: 40).isActive = true
+        //５、viewのX軸にセンターに自動的に配置 //4,5でViewでのxyを指定してる
+        coffeeSizeSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    
+    
+    }
 
 }
 extension AddOrderViewController: UITableViewDataSource,  UITableViewDelegate {
