@@ -8,7 +8,10 @@
 import UIKit
 
 class OrdersTableViewController: UITableViewController {
-
+    
+    //１、viewにデータを表示する権限を持つvmを作成
+    var ordersListViewModel = OrdersListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         toOrder()
@@ -22,14 +25,19 @@ class OrdersTableViewController: UITableViewController {
         let resource = Resource<[Order]>(url: coffeeUrl)
 
     
-        WebService().load(resource: resource) { result in
+        WebService().load(resource: resource) { [ weak self ] result in
           
             //let result: Result<Order, NetWorkError>なので成功と失敗のケースを書かないといけない
             switch result {
             
             case .success(let orders):
                 print(orders)
-            
+                //２、ここで配列のデータを取得
+                self?.ordersListViewModel.orderViewModels = orders.map(OrderViewModel.init)
+               //非同期使わなくてもいいよーデータを取得するときにしてるので
+                    self?.tableView.reloadData()
+               
+                
             case .failure(let error):
                 print(error)
             }
@@ -41,24 +49,26 @@ class OrdersTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return ordersListViewModel.orderViewModels.count
+
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
+        let order = ordersListViewModel.forRowAtindex(at: indexPath.row)
+        
+        cell.textLabel?.text = order.name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
