@@ -51,7 +51,7 @@ extension Order {
                let  size = CoffeeSize(rawValue: vm.selectedSize!.lowercased()) else {
             return nil
         }
-        
+       //ここで取得したのをエンコードする必要がある
         self.name = name
         self.coffeeName = coffeeName
         self.total = vm.total
