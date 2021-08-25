@@ -14,6 +14,10 @@ struct AddCoffeeOrderViewModel {
     
     var total: Double = 0
     
+    var selectedSize: String?
+    
+    var selectedType: String?
+    
     var coffeeType: [String] {
         
         return CoffeeType.allCases.map { $0.rawValue.capitalized }

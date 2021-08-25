@@ -8,7 +8,7 @@
 import UIKit
 
 class AddOrderViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -25,7 +25,7 @@ class AddOrderViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-      
+        totalTF.keyboardType = .numberPad
         setupUI()
     }
     //自作のUISegmentedControlを作成する
@@ -41,11 +41,33 @@ class AddOrderViewController: UIViewController {
                                                         constant: 40).isActive = true
         //５、viewのX軸にセンターに自動的に配置 //4,5でViewでのxyを指定してる
         coffeeSizeSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    
-    
+        
+        
     }
-
+    
+    @IBAction func save() {
+        guard let name = ordernameTF.text,
+              let total = Double(totalTF.text ?? ""),
+              !name.isEmpty else { return }
+        
+        
+        
+        //SegmentedControlのタイトルの情報を取得
+        let coffeeSize = coffeeSizeSegmentedControl.titleForSegment(at: coffeeSizeSegmentedControl.selectedSegmentIndex)
+        //コーヒーのタイプを指定 indexPathForSelectedRowで選択してるcellを取得することができる
+        guard let selecteindexcell = tableView.indexPathForSelectedRow else { return }
+        
+        vm.name = name
+        vm.total = total
+        vm.selectedSize = coffeeSize
+        vm.selectedType = vm.coffeeType[selecteindexcell.row]
+        
+    }
+    
 }
+
+
+
 extension AddOrderViewController: UITableViewDataSource,  UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,12 +84,13 @@ extension AddOrderViewController: UITableViewDataSource,  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         //セルをタップした場所に.checkmarkをつける
+        print(vm.name ?? "a")
     }
     //Deselectした時にチェックマークを消す
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         tableView.cellForRow(at: indexPath)?.accessoryType = .none
-    
+        
     }
     
     

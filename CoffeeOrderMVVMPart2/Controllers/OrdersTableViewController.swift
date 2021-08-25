@@ -30,7 +30,7 @@ class OrdersTableViewController: UITableViewController {
     
         WebService().load(resource: resource) { [ weak self ] result in
           
-            //let result: Result<Order, NetWorkError>なので成功と失敗のケースを書かないといけない
+            //let result: Result<[Order], NetWorkError>なので成功と失敗のケースを書かないといけない
             switch result {
             
             case .success(let orders):

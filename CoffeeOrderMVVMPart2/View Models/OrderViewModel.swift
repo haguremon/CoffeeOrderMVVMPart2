@@ -43,10 +43,6 @@ extension OrdersListViewModel {
 
 
 
-
-
-
-
 //１、最初に　一つのOrderをここで作る　Order型のプロパティを作る
 struct OrderViewModel {
     

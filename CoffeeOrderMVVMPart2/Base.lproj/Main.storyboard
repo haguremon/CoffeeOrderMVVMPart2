@@ -81,7 +81,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-Nv-06B">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ordername" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-Nv-06B">
                                 <rect key="frame" x="107" y="649" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="0hA-m4-Nu8"/>
@@ -89,7 +89,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q64-1H-VfT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q64-1H-VfT">
                                 <rect key="frame" x="107" y="714" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="sqg-x9-WLM"/>
@@ -115,7 +115,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add new Order" id="0gU-5w-jmB">
-                        <barButtonItem key="rightBarButtonItem" title="save" id="GBh-f8-MG6"/>
+                        <barButtonItem key="rightBarButtonItem" title="save" id="GBh-f8-MG6">
+                            <connections>
+                                <action selector="save" destination="S3Y-8H-ggC" id="vA1-l1-Ems"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ordernameTF" destination="SgR-Nv-06B" id="UlB-ug-zuZ"/>
