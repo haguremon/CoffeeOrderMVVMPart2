@@ -48,7 +48,17 @@ class AddOrderViewController: UIViewController {
     @IBAction func save() {
         guard let name = ordernameTF.text,
               let total = Double(totalTF.text ?? ""),
-              !name.isEmpty else { return }
+              !name.isEmpty, total > 0 else {
+            let alert = UIAlertController(title: "注文情報", message: "注文情報に間違いがあります", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "注文に戻る", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            
+            present(alert, animated: true)
+            
+            return
+            
+        }
         
         
         
