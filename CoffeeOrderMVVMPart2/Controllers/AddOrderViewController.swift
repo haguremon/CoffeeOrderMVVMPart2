@@ -49,6 +49,7 @@ class AddOrderViewController: UIViewController {
         guard let name = ordernameTF.text,
               let total = Double(totalTF.text ?? ""),
               !name.isEmpty, total > 0 else {
+            
             let alert = UIAlertController(title: "注文情報", message: "注文情報に間違いがあります", preferredStyle: .alert)
             
             let cancel = UIAlertAction(title: "注文に戻る", style: .cancel, handler: nil)
@@ -66,7 +67,7 @@ class AddOrderViewController: UIViewController {
         let coffeeSize = coffeeSizeSegmentedControl.titleForSegment(at: coffeeSizeSegmentedControl.selectedSegmentIndex)
         //コーヒーのタイプを指定 indexPathForSelectedRowで選択してるcellを取得することができる
         guard let selecteindexcell = tableView.indexPathForSelectedRow else { return }
-        
+      //ここで登録した情報をどうやって保存するか
         vm.name = name
         vm.total = total
         vm.selectedSize = coffeeSize
@@ -94,7 +95,7 @@ extension AddOrderViewController: UITableViewDataSource,  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         //セルをタップした場所に.checkmarkをつける
-        print(vm.name ?? "a")
+        print(vm.name ?? "00000")
     }
     //Deselectした時にチェックマークを消す
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

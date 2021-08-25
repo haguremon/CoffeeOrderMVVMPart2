@@ -7,6 +7,7 @@
 
 import Foundation
 //rowValueの設定をStringにした、そしてOrderはCodableに批准してるのでCoffeeTypeもOrder内でプロパティとして使うのでCodableが必要
+
 //メニューを増やしたい場合はここに加えればいい
 enum CoffeeType: String, Codable, CaseIterable {
     
@@ -39,4 +40,23 @@ struct Order: Codable {
     let total: Double
     
     let size: CoffeeSize
+}
+
+extension Order {
+    //失敗可能イニシャライズでAddCoffeeOrderViewModelを引数にする
+    init?(_ vm: AddCoffeeOrderViewModel) {
+        
+        guard  let name = vm.name,
+               let coffeeName = CoffeeType(rawValue: vm.selectedType!.lowercased()) ,
+               let  size = CoffeeSize(rawValue: vm.selectedSize!.lowercased()) else {
+            return nil
+        }
+        
+        self.name = name
+        self.coffeeName = coffeeName
+        self.total = vm.total
+        self.size = size
+
+    }
+    
 }
