@@ -7,28 +7,51 @@
 
 import UIKit
 
-class OrdersTableViewController: UITableViewController {
-    
+
+class OrdersTableViewController: UITableViewController, AddCoffeeOrderDelegate {
     //１、viewにデータを表示する権限を持つvmを作成
     var ordersListViewModel = OrdersListViewModel()
     
+    func AddCoffeeOrderVCDidSave(order: Order, controller: UIViewController) {
+        controller.dismiss(animated: true, completion: nil)
+        print("test222")
+        let orderVM = OrderViewModel(order: order)
+        self.ordersListViewModel.orderViewModels.append(orderVM)
+        
+        tableView.insertRows(at: [IndexPath.init(row: self.ordersListViewModel.orderViewModels.count - 1, section: 0)], with: .automatic)
+        tableView.reloadData()
+    
+    }
+    
+    func AddCoffeeOrderVCDidClose(controller: UIViewController) {
+    
+        controller.dismiss(animated: true, completion: nil)
+        print("test1111")
+    }
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         showOrderList()
    
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nav2 = segue.destination as? UINavigationController,
+              let vc2 = nav2.viewControllers.first as? AddOrderViewController else {
+            print("test")
+            return
+            
+        }
+        vc2.delegate = self
     
+    }
+   
     private func showOrderList(){
         
-        
-        guard let coffeeUrl = URL(string: "https://island-bramble.glitch.me/orders") else { return }
-        //配列の注文にする予定なのでResourceのジェリックの値を配列に設定　そして引数にその型にあったUrlにする
-        
-        let resource = Resource<[Order]>(url: coffeeUrl)
-
-    
-        WebService().load(resource: resource) { [ weak self ] result in
+            
+        WebService().load(resource: Order.all) { [ weak self ] result in
           
             //let result: Result<[Order], NetWorkError>なので成功と失敗のケースを書かないといけない
             switch result {
@@ -74,49 +97,6 @@ class OrdersTableViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }

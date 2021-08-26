@@ -12,7 +12,7 @@ struct AddCoffeeOrderViewModel {
     
     var name: String?
     
-    var total: Double = 0
+    var total: Double?
     
     var selectedSize: String?
     

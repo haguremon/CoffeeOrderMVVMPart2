@@ -11,7 +11,7 @@
         <!--Orders-->
         <scene sceneID="MH1-kw-UJa">
             <objects>
-                <tableViewController id="uBt-zP-ZU8" customClass="OrdersTableViewController" customModule="CoffeeOrderMVVMPart2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="vc1" id="uBt-zP-ZU8" customClass="OrdersTableViewController" customModule="CoffeeOrderMVVMPart2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3z9-oT-82i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Orders" id="BX0-gS-p7Y">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wjV-yg-ksl">
                             <connections>
-                                <segue destination="S3Y-8H-ggC" kind="show" id="6xu-32-clg"/>
+                                <segue destination="fEW-gG-vfp" kind="presentation" modalPresentationStyle="fullScreen" id="j9D-pE-PkV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,7 +62,7 @@
         <!--Add new Order-->
         <scene sceneID="6aI-G6-L8J">
             <objects>
-                <viewController id="S3Y-8H-ggC" customClass="AddOrderViewController" customModule="CoffeeOrderMVVMPart2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc2" id="S3Y-8H-ggC" customClass="AddOrderViewController" customModule="CoffeeOrderMVVMPart2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZ0-xz-BQy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ordername" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-Nv-06B">
                                 <rect key="frame" x="107" y="649" width="200" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0hA-m4-Nu8"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="0hA-m4-Nu8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -92,7 +92,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q64-1H-VfT">
                                 <rect key="frame" x="107" y="714" width="200" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="sqg-x9-WLM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="sqg-x9-WLM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -115,6 +115,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add new Order" id="0gU-5w-jmB">
+                        <barButtonItem key="leftBarButtonItem" title="close" id="TdL-Lv-TH2">
+                            <connections>
+                                <action selector="close" destination="S3Y-8H-ggC" id="3Zc-8n-3CC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="save" id="GBh-f8-MG6">
                             <connections>
                                 <action selector="save" destination="S3Y-8H-ggC" id="vA1-l1-Ems"/>
@@ -129,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjA-OC-ay0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2811.594202898551" y="55.580357142857139"/>
+            <point key="canvasLocation" x="3721.739130434783" y="55.580357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rGU-xm-GJm">
@@ -148,6 +153,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJu-d4-z5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="804.34782608695662" y="65.625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y04-Tk-gwu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fEW-gG-vfp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="r7N-H9-aIi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jd7-3R-jFp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S3Y-8H-ggC" kind="relationship" relationship="rootViewController" id="0OC-Cq-BJB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQr-2C-Cuq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2811.594202898551" y="55.580357142857139"/>
         </scene>
     </scenes>
     <resources>
